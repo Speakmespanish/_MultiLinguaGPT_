@@ -1,6 +1,6 @@
 ﻿using UserService.Core.Entities;
 
-namespace UserService.Core.Interfaces
+namespace UserService.Core.Interfaces.Repositories
 {
     public interface IUserRepository
     {

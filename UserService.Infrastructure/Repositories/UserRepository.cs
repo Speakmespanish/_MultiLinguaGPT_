@@ -1,7 +1,8 @@
 ﻿using AuthService.Infrastructure.SecurityCrypto;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 using UserService.Core.Entities;
-using UserService.Core.Interfaces;
+using UserService.Core.Interfaces.Repositories;
 using UserService.Infrastructure.Data;
 
 namespace UserService.Infrastructure.Repositories
@@ -88,19 +89,19 @@ namespace UserService.Infrastructure.Repositories
 
             bool hasChanges = false;
 
-            if (!string.Equals(existingUser.FullName, user.FullName, StringComparison.Ordinal))
+            if (!string.Equals(existingUser.FullName, user.FullName, StringComparison.Ordinal) || user.FullName != string.Empty)
             {
                 existingUser.FullName = user.FullName;
                 hasChanges = true;
             }
                 
-            if (!_passwordHasher.VerifyPassword(existingUser.Password, _passwordHasher.HashPassword(user.Password)))
+            if (!_passwordHasher.VerifyPassword(existingUser.Password, _passwordHasher.HashPassword(user.Password)) || user.Password != string.Empty)
             {
                 existingUser.Password = user.Password;
                 hasChanges = true;
             }
 
-            if (!string.Equals(existingUser.LanguagePreference, user.LanguagePreference, StringComparison.Ordinal))
+            if (!string.Equals(existingUser.LanguagePreference, user.LanguagePreference, StringComparison.Ordinal) || user.LanguagePreference != string.Empty)
             {
                 existingUser.LanguagePreference = user.LanguagePreference;
                 hasChanges = true;
