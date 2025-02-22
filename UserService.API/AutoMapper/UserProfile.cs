@@ -20,7 +20,7 @@ namespace UserService.API.AutoMapper
             //Mapping from User to UserCreateDTO Then from UserCreateDTO to User with ReverseMap
             CreateMap<User, UserCreateDTO>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.FullName))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))    
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ForMember(dest => dest.LanguagePreference, opt => opt.MapFrom(src => src.LanguagePreference))
                 .ReverseMap();

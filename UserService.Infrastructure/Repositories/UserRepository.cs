@@ -42,9 +42,6 @@ namespace UserService.Infrastructure.Repositories
             if (await ValidateUserExist(user.Email))
                 throw new UserAlreadyExistsException("User already exists");
 
-            //Hash Password
-            user.Password = _passwordHasher.HashPassword(user.Password);
-
             _databaseContext.Users.Add(user);
             await _databaseContext.SaveChangesAsync();
             return user;
@@ -95,7 +92,7 @@ namespace UserService.Infrastructure.Repositories
                 hasChanges = true;
             }
                 
-            if (!_passwordHasher.VerifyPassword(existingUser.Password, _passwordHasher.HashPassword(user.Password)) || user.Password != string.Empty)
+            if (!string.Equals(existingUser.Password, user.Password, StringComparison.Ordinal) || user.Password != string.Empty)
             {
                 existingUser.Password = user.Password;
                 hasChanges = true;
