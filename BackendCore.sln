@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35728.132 d17.12
+VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthService", "AuthService", "{AD67FAF8-4271-4AED-BE45-E8E40C06E4D3}"
 EndProject
@@ -21,27 +21,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{3877
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B7684F41-7A76-49E8-A8A4-CD649105FB3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.API", "AuthService.API\AuthService.API.csproj", "{6D53698B-7A5D-45E0-BFC1-B18564CA3DBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.API", "AuthService.API\AuthService.API.csproj", "{6D53698B-7A5D-45E0-BFC1-B18564CA3DBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Core", "AuthService.Core\AuthService.Core.csproj", "{D5283182-C6B1-4EF4-9BC7-B819A2B62BB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Core", "AuthService.Core\AuthService.Core.csproj", "{D5283182-C6B1-4EF4-9BC7-B819A2B62BB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Infrastructure", "AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{59AF76D6-A009-48D4-8202-CE728C549755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Infrastructure", "AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{59AF76D6-A009-48D4-8202-CE728C549755}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService.API", "DataService.API\DataService.API.csproj", "{F85F67A2-2530-47DC-ACB8-EAF787C042FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService.API", "DataService.API\DataService.API.csproj", "{F85F67A2-2530-47DC-ACB8-EAF787C042FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService.Core", "DataService.Core\DataService.Core.csproj", "{58F74615-3136-4539-861E-1637AEE62F01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService.Core", "DataService.Core\DataService.Core.csproj", "{58F74615-3136-4539-861E-1637AEE62F01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService.Infrastructure", "DataService.Infrastructure\DataService.Infrastructure.csproj", "{CF59D7C1-F1FC-4D26-81F1-5EE94644860C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationService.API", "IntegrationService.API\IntegrationService.API.csproj", "{08C449A9-FD2F-4CF7-A090-B9F68A3B295D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService.API", "IntegrationService.API\IntegrationService.API.csproj", "{08C449A9-FD2F-4CF7-A090-B9F68A3B295D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationService.Core", "IntegrationService.Core\IntegrationService.Core.csproj", "{B747EA95-05FF-4171-B0C4-6E2304A1516C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService.Core", "IntegrationService.Core\IntegrationService.Core.csproj", "{B747EA95-05FF-4171-B0C4-6E2304A1516C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.API", "UserService.API\UserService.API.csproj", "{224C55F7-F3DE-4155-B945-CECDEA6408AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.API", "UserService.API\UserService.API.csproj", "{224C55F7-F3DE-4155-B945-CECDEA6408AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Core", "UserService.Core\UserService.Core.csproj", "{E795FC6B-2738-4AB6-AAB3-AB34EBB40DF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Core", "UserService.Core\UserService.Core.csproj", "{E795FC6B-2738-4AB6-AAB3-AB34EBB40DF3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "UserService.Infrastructure\UserService.Infrastructure.csproj", "{09D08775-CD17-4D4D-B971-F71DC9B404BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Infrastructure", "UserService.Infrastructure\UserService.Infrastructure.csproj", "{09D08775-CD17-4D4D-B971-F71DC9B404BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,10 +67,6 @@ Global
 		{58F74615-3136-4539-861E-1637AEE62F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F74615-3136-4539-861E-1637AEE62F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F74615-3136-4539-861E-1637AEE62F01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF59D7C1-F1FC-4D26-81F1-5EE94644860C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF59D7C1-F1FC-4D26-81F1-5EE94644860C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF59D7C1-F1FC-4D26-81F1-5EE94644860C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF59D7C1-F1FC-4D26-81F1-5EE94644860C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08C449A9-FD2F-4CF7-A090-B9F68A3B295D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08C449A9-FD2F-4CF7-A090-B9F68A3B295D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08C449A9-FD2F-4CF7-A090-B9F68A3B295D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -108,11 +102,13 @@ Global
 		{59AF76D6-A009-48D4-8202-CE728C549755} = {AD67FAF8-4271-4AED-BE45-E8E40C06E4D3}
 		{F85F67A2-2530-47DC-ACB8-EAF787C042FF} = {48B0DECE-E51B-4356-814E-5B30CBF8F4F3}
 		{58F74615-3136-4539-861E-1637AEE62F01} = {48B0DECE-E51B-4356-814E-5B30CBF8F4F3}
-		{CF59D7C1-F1FC-4D26-81F1-5EE94644860C} = {48B0DECE-E51B-4356-814E-5B30CBF8F4F3}
 		{08C449A9-FD2F-4CF7-A090-B9F68A3B295D} = {991F56E8-8A94-43FB-808F-B1C5BF598430}
 		{B747EA95-05FF-4171-B0C4-6E2304A1516C} = {991F56E8-8A94-43FB-808F-B1C5BF598430}
 		{224C55F7-F3DE-4155-B945-CECDEA6408AD} = {DE0BEFB6-9DC1-45DF-8F6E-3CDAD03C8490}
 		{E795FC6B-2738-4AB6-AAB3-AB34EBB40DF3} = {DE0BEFB6-9DC1-45DF-8F6E-3CDAD03C8490}
 		{09D08775-CD17-4D4D-B971-F71DC9B404BE} = {DE0BEFB6-9DC1-45DF-8F6E-3CDAD03C8490}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7B5528B-214A-4295-B7BE-82B91CCCCF92}
 	EndGlobalSection
 EndGlobal
