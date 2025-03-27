@@ -32,6 +32,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthUserService", "AuthUserService", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthUserService.Api", "..\..\..\..\..\..\..\..\source\repos\JWT\AuthUserService.Api\AuthUserService.Api.csproj", "{8B6A2B9B-C243-DD94-FE61-414A8DDC6261}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10D7B2E5-EB56-8761-885C-531600CF4065} = {10D7B2E5-EB56-8761-885C-531600CF4065}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthUserService.Core", "..\..\..\..\..\..\..\..\source\repos\JWT\AuthUserService.Core\AuthUserService.Core.csproj", "{10D7B2E5-EB56-8761-885C-531600CF4065}"
 EndProject
