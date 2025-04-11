@@ -2,7 +2,7 @@
 {
     public enum UserType
     {
-        Cliente = 0,
-        Administrador = 1
+        cliente = 0,
+        administrador = 1
     }
 }

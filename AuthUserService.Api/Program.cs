@@ -1,5 +1,6 @@
 using AuthUserService.Api.Custom;
 using AuthUserService.Api.Data;
+using AuthUserService.Api.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -65,6 +66,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
 
