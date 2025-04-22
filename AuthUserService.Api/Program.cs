@@ -66,9 +66,10 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 app.UseCors("AllowAll");
 app.UseCors(options =>
 {
-    options.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
+    options.WithOrigins("http://localhost:5083")
+           .AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
 });
 app.UseAuthentication();
 app.UseAuthorization();
