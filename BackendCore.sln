@@ -19,9 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService.Core", "DataSer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthUserService", "AuthUserService", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthUserService.Api", "AuthUserService.Api\AuthUserService.Api.csproj", "{5A93BB7C-5895-F84B-A342-CE0CA8091BB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthUserService.Api", "AuthUserService.Api\AuthUserService.Api.csproj", "{5A93BB7C-5895-F84B-A342-CE0CA8091BB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthUserService.Core", "AuthUserService.Core\AuthUserService.Core.csproj", "{B1E1CF97-FAD4-7C47-5ACF-B4C322AA70DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthUserService.Core", "AuthUserService.Core\AuthUserService.Core.csproj", "{B1E1CF97-FAD4-7C47-5ACF-B4C322AA70DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{0144ABAD-04CA-4B0F-832C-D542BBDCAA37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{364A12FF-AD88-43DE-9A5B-5C62C09B222F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{B1E1CF97-FAD4-7C47-5ACF-B4C322AA70DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1E1CF97-FAD4-7C47-5ACF-B4C322AA70DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1E1CF97-FAD4-7C47-5ACF-B4C322AA70DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{364A12FF-AD88-43DE-9A5B-5C62C09B222F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{364A12FF-AD88-43DE-9A5B-5C62C09B222F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{364A12FF-AD88-43DE-9A5B-5C62C09B222F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{364A12FF-AD88-43DE-9A5B-5C62C09B222F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,8 @@ Global
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {3509DA8E-FD7F-47D1-A9FA-450A443BB43E}
 		{5A93BB7C-5895-F84B-A342-CE0CA8091BB9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{B1E1CF97-FAD4-7C47-5ACF-B4C322AA70DB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{0144ABAD-04CA-4B0F-832C-D542BBDCAA37} = {3509DA8E-FD7F-47D1-A9FA-450A443BB43E}
+		{364A12FF-AD88-43DE-9A5B-5C62C09B222F} = {0144ABAD-04CA-4B0F-832C-D542BBDCAA37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7B5528B-214A-4295-B7BE-82B91CCCCF92}

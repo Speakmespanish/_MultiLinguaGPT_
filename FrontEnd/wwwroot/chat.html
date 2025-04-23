@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header class="card-header">
+                <div class="icon-wrapper">
+                    <i data-lucide="bot" class="icon"></i>
+                </div>
+                <h2>CineMax AI Assistant</h2>
+            </header>
+            <main class="card-content" id="chatArea">
+                <!-- Messages will be dynamically inserted here -->
+            </main>
+            <footer class="card-footer">
+                <div class="quick-actions">
+                    <button class="action-btn">
+                        <i data-lucide="calendar" class="btn-icon"></i>
+                        Show Times
+                    </button>
+                    <button class="action-btn">
+                        <i data-lucide="ticket" class="btn-icon"></i>
+                        Book Tickets
+                    </button>
+                    <button class="action-btn">
+                        <i data-lucide="popcorn" class="btn-icon"></i>
+                        Concessions
+                    </button>
+                    <button class="action-btn">
+                        <i data-lucide="credit-card" class="btn-icon"></i>
+                        Pricing
+                    </button>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="userInput" placeholder="Type your message...">
+                    <button id="micButton" class="icon-btn" title="Voice Input">
+                        <i data-lucide="mic" class="btn-icon"></i>
+                    </button>
+                    <button id="sendButton" class="send-btn">
+                        <i data-lucide="send" class="btn-icon"></i>
+                        Send
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
