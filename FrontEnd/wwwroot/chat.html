@@ -6,6 +6,7 @@
     <title>CineMax AI Assistant</title>
     <link rel="stylesheet" href="css/chat.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=0KqIBEDZ"></script>
 </head>
 <body>
     <div class="container">
@@ -14,43 +15,45 @@
                 <div class="icon-wrapper">
                     <i data-lucide="bot" class="icon"></i>
                 </div>
-                <h2>CineMax AI Assistant</h2>
+                <h2 class="header-title">CineMax AI Assistant</h2>
+                <button onclick="window.location.href='movieDetail.html'" class="redirect-btn">
+                    <i data-lucide="film" class="btn-icon"></i> Ver Detalles
+                </button>
             </header>
+
             <main class="card-content" id="chatArea">
-                <!-- Messages will be dynamically inserted here -->
+                <!-- Mensajes dinámicos serán insertados aquí -->
+                <div class="message received">
+                    <div class="avatar-icon">
+                        <i data-lucide="bot"></i>
+                    </div>
+                    <div class="message-content">
+                        ¡Hola! Soy CineMax AI Assistant 🤖<br>¿En qué puedo ayudarte hoy con tus películas favoritas?
+                    </div>
+                </div>
             </main>
             <footer class="card-footer">
-                <div class="quick-actions">
-                    <button class="action-btn">
-                        <i data-lucide="calendar" class="btn-icon"></i>
-                        Show Times
-                    </button>
-                    <button class="action-btn">
-                        <i data-lucide="ticket" class="btn-icon"></i>
-                        Book Tickets
-                    </button>
-                    <button class="action-btn">
-                        <i data-lucide="popcorn" class="btn-icon"></i>
-                        Concessions
-                    </button>
-                    <button class="action-btn">
-                        <i data-lucide="credit-card" class="btn-icon"></i>
-                        Pricing
-                    </button>
-                </div>
                 <div class="input-area">
-                    <input type="text" id="userInput" placeholder="Type your message...">
+                    <input type="text" id="userInput" placeholder="Escribe tu consulta...">
                     <button id="micButton" class="icon-btn" title="Voice Input">
                         <i data-lucide="mic" class="btn-icon"></i>
                     </button>
+
+                    <!-- Botón de pausa -->
+                    <button id="pauseButton" class="icon-btn" title="Pausar Voz">
+                        <i data-lucide="pause" class="btn-icon"></i>
+                    </button>
+
                     <button id="sendButton" class="send-btn">
-                        <i data-lucide="send" class="btn-icon"></i>
-                        Send
+                        Enviar
                     </button>
                 </div>
             </footer>
         </div>
     </div>
+    <script>
+        lucide.createIcons();
+    </script>
     <script src="js/chat.js"></script>
 </body>
 </html>

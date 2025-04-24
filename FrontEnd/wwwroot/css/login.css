@@ -1,5 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import ('~lucide-static/font/Lucide.css');
 
 * {
     box-sizing: border-box;
@@ -162,7 +162,6 @@ input {
 }
 
 .overlay {
-    background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 62%, rgb(0, 89, 255) 100%);
     background-repeat: no-repeat;
     background-size: cover;

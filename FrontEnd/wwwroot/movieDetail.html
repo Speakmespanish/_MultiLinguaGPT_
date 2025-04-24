@@ -1,40 +1,45 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Grid</title>
-    <link rel="stylesheet" href="css/movieDetail.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Película</title>
+    <!-- Importación de los íconos de Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@lucide-icons/core@0.11.0/dist/lucide.min.css" />
+    <link rel="stylesheet" href="css/movieDetail.css" />
 </head>
 <body>
     <div class="container">
-        <header>
-            <button id="backBtn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
-                Back
-            </button>
-            <div class="search-result">Consulta realizada</div>
-        </header>
+        <!-- Botones superiores -->
+        <div class="sticky-buttons">
+                <button onclick="window.location.href='chat.html'" class="redirect-btn">
+                    <i data-lucide="arrow-left" class="btn-icon"></i> Volver al Chat
+                </button>
 
-        <main>
-            <div class="movie-grid" id="movieGrid"></div>
-        </main>
+                <button onclick="window.location.href='login.html'" class="redirect-btn">
+                    <i data-lucide="log-out" class="btn-icon"></i> Cerrar Sesión
+                </button>
+        </div>
 
-        <aside class="sidebar">
-            <h2>Movie</h2>
-            <div class="movie-info">
-                <span>133 min</span>
-                <span>Action</span>
-            </div>
-            <button class="schedule-btn">Schedule</button>
-            <div class="description">
-                <h3>Description</h3>
-                <div class="description-placeholder"></div>
-            </div>
-        </aside>
+        <!-- Card principal -->
+        <div class="card">
+            <header class="card-header">
+                <h2>CineMax AI - Detalle de Película</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar película..." style="padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1;" />
+                </div>
+            </header>
+
+            <main id="movieDetails" class="card-content">
+                <!-- Aquí irá el contenido de la película -->
+            </main>
+        </div>
     </div>
 
+    <script>
+        lucide.createIcons();
+    </script>
     <script src="js/movieDetail.js"></script>
 </body>
 </html>
-
