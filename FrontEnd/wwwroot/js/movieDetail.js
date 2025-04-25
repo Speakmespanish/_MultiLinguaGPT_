@@ -3,6 +3,54 @@
     const searchInput = document.getElementById("searchInput");
     const errorMessage = document.getElementById("errorMessage");
     const loadingSkeleton = document.getElementById("loadingSkeleton");
+    const languageSelector = document.getElementById('language-selector');
+    const translatableElements = document.querySelectorAll('.translatable');
+    const originalLanguage = 'es';
+    const projectId = 'multilingual-457918'; // Reemplaza con tu ID de proyecto
+    const apiKey = 'TAIzaSyAEUOvc5pgLaRKiTlOnP6Blzol9BHbyv4E'; // Reemplaza con tu clave de API
+
+    languageSelector.addEventListener('change', function () {
+        const targetLanguage = this.value;
+        const textsToTranslate = [];
+        const elementsToTranslate = [];
+
+        translatableElements.forEach(element => {
+            const originalText = element.textContent;
+            if (originalText) {
+                textsToTranslate.push(originalText);
+                elementsToTranslate.push(element);
+            }
+        });
+
+        if (textsToTranslate.length > 0) {
+            fetch(`https://translate.googleapis.com/v3beta1/projects/${projectId}/locations/global:translateText?key=${apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: textsToTranslate,
+                    mimeType: 'text/plain',
+                    sourceLanguageCode: originalLanguage,
+                    targetLanguageCode: targetLanguage
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.translations && data.translations.length === elementsToTranslate.length) {
+                        data.translations.forEach((translation, index) => {
+                            elementsToTranslate[index].textContent = translation.translatedText;
+                        });
+                    } else {
+                        console.error('Número de traducciones no coincide con el número de elementos:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al traducir:', error);
+                });
+        }
+    });
+
 
     async function getMovieDetails(title) {
         try {
@@ -81,85 +129,85 @@
         };
 
         const genreBadgesHTML = genre.split(', ').map(g =>
-            `<span class="genre-badge">${g}</span>`
+            `<span class="genre-badge translatable">${g}</span>`
         ).join('');
 
         const allRatingsHTML = ratings.map(r => `
-            <div class="rating-card">
-                <div class="rating-source">${r.source}</div>
-                <div class="stars-container">
-                    <div class="rating-stars">
-                        ${getStarRating(r.value)}
-                    </div>
-                    <span class="rating-value">${r.value}</span>
+        <div class="rating-card">
+            <div class="rating-source translatable">${r.source}</div>
+            <div class="stars-container">
+                <div class="rating-stars">
+                    ${getStarRating(r.value)}
                 </div>
+                <span class="rating-value">${r.value}</span>
             </div>
-        `).join('');
+        </div>
+    `).join('');
 
         movieDetails.innerHTML = `
-            <div class="poster-wrapper">
-                <div class="poster-container">
-                    <img src="${poster}" alt="${title}" class="movie-poster">
-                </div>
+        <div class="poster-wrapper">
+            <div class="poster-container">
+                <img src="${poster}" alt="${title}" class="movie-poster">
             </div>
-            
-            <div class="movie-info">
-                <h2 class="movie-title">
-                    ${title} <span class="movie-year">(${year})</span>
-                </h2>
-                
-                <div class="ratings-section">
-                    <div class="ratings-container">
-                        ${imdbRating ? `
-                        <div class="rating-item">
-                            <span class="rating-source">IMDB</span>
-                            <div class="stars-container">
-                                <div class="rating-stars">
-                                    ${getStarRating(imdbRating)}
-                                </div>
-                                <span class="rating-value">${imdbRating}</span>
+        </div>
+
+        <div class="movie-info">
+            <h2 class="movie-title translatable">
+                ${title} <span class="movie-year">(${year})</span>
+            </h2>
+
+            <div class="ratings-section">
+                <div class="ratings-container">
+                    ${imdbRating ? `
+                    <div class="rating-item">
+                        <span class="rating-source translatable">IMDB</span>
+                        <div class="stars-container">
+                            <div class="rating-stars">
+                                ${getStarRating(imdbRating)}
                             </div>
+                            <span class="rating-value">${imdbRating}</span>
                         </div>
-                        ` : ''}
-
-                        ${metascore ? `
-                        <div class="rating-item">
-                            <span class="rating-source">Metascore</span>
-                            <span class="metascore ${getMetascoreClass(metascore)}">${metascore}</span>
-                        </div>
-                        ` : ''}
                     </div>
-                </div>
+                    ` : ''}
 
-                <div class="movie-details-grid">
-                    <div class="detail-item"><i data-lucide="film" class="detail-icon"></i><span class="detail-label">Rated:</span> ${rated}</div>
-                    <div class="detail-item"><i data-lucide="calendar" class="detail-icon"></i><span class="detail-label">Released:</span> ${released}</div>
-                    <div class="detail-item"><i data-lucide="clock" class="detail-icon"></i><span class="detail-label">Runtime:</span> ${runtime}</div>
-                    <div class="detail-item"><i data-lucide="tag" class="detail-icon"></i><span class="detail-label">Genre:</span><div class="genre-badges">${genreBadgesHTML}</div></div>
-                    <div class="detail-item"><i data-lucide="user" class="detail-icon"></i><span class="detail-label">Director:</span> ${director}</div>
-                    <div class="detail-item"><i data-lucide="edit" class="detail-icon"></i><span class="detail-label">Writer:</span> <span class="truncate">${writer}</span></div>
-                    <div class="detail-item"><i data-lucide="users" class="detail-icon"></i><span class="detail-label">Actors:</span> <span class="truncate">${actors}</span></div>
-                    <div class="detail-item"><i data-lucide="languages" class="detail-icon"></i><span class="detail-label">Language:</span> ${language}</div>
-                    <div class="detail-item"><i data-lucide="flag" class="detail-icon"></i><span class="detail-label">Country:</span> ${country}</div>
-                    <div class="detail-item"><i data-lucide="award" class="detail-icon"></i><span class="detail-label">Awards:</span> ${awards}</div>
-                </div>
-                
-                <div class="plot-section">
-                    <div class="plot-header">
-                        <i data-lucide="book-open" class="detail-icon"></i>
-                        <span class="detail-label">Plot:</span>
+                    ${metascore ? `
+                    <div class="rating-item">
+                        <span class="rating-source translatable">Metascore</span>
+                        <span class="metascore ${getMetascoreClass(metascore)}">${metascore}</span>
                     </div>
-                    <p class="plot-content">${plot}</p>
+                    ` : ''}
                 </div>
-
-                ${ratings.length > 1 ? `
-                <div class="all-ratings">
-                    <h3 class="all-ratings-title">All Ratings</h3>
-                    <div class="ratings-grid">${allRatingsHTML}</div>
-                </div>
-                ` : ''}
             </div>
-        `;
+
+            <div class="movie-details-grid">
+                <div class="detail-item"><i data-lucide="film" class="detail-icon"></i><span class="detail-label translatable">Rated:</span> <span class="detail-value translatable">${rated}</span></div>
+                <div class="detail-item"><i data-lucide="calendar" class="detail-icon"></i><span class="detail-label translatable">Released:</span> <span class="detail-value translatable">${released}</span></div>
+                <div class="detail-item"><i data-lucide="clock" class="detail-icon"></i><span class="detail-label translatable">Runtime:</span> <span class="detail-value translatable">${runtime}</span></div>
+                <div class="detail-item"><i data-lucide="tag" class="detail-icon"></i><span class="detail-label translatable">Genre:</span><div class="genre-badges">${genreBadgesHTML}</div></div>
+                <div class="detail-item"><i data-lucide="user" class="detail-icon"></i><span class="detail-label translatable">Director:</span> <span class="detail-value translatable">${director}</span></div>
+                <div class="detail-item"><i data-lucide="edit" class="detail-icon"></i><span class="detail-label translatable">Writer:</span> <span class="truncate translatable">${writer}</span></div>
+                <div class="detail-item"><i data-lucide="users" class="detail-icon"></i><span class="detail-label translatable">Actors:</span> <span class="truncate translatable">${actors}</span></div>
+                <div class="detail-item"><i data-lucide="languages" class="detail-icon"></i><span class="detail-label translatable">Language:</span> <span class="detail-value translatable">${language}</span></div>
+                <div class="detail-item"><i data-lucide="flag" class="detail-icon"></i><span class="detail-label translatable">Country:</span> <span class="detail-value translatable">${country}</span></div>
+                <div class="detail-item"><i data-lucide="award" class="detail-icon"></i><span class="detail-label translatable">Awards:</span> <span class="detail-value translatable">${awards}</span></div>
+            </div>
+
+            <div class="plot-section">
+                <div class="plot-header">
+                    <i data-lucide="book-open" class="detail-icon"></i>
+                    <span class="detail-label translatable">Plot:</span>
+                </div>
+                <p class="plot-content translatable">${plot}</p>
+            </div>
+
+            ${ratings.length > 1 ? `
+            <div class="all-ratings">
+                <h3 class="all-ratings-title translatable">All Ratings</h3>
+                <div class="ratings-grid">${allRatingsHTML}</div>
+            </div>
+            ` : ''}
+        </div>
+    `;
 
         loadingSkeleton.classList.add("hidden");
         errorMessage.classList.add("hidden");

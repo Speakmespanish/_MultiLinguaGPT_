@@ -15,6 +15,13 @@ body {
     justify-content: center;
     align-items: flex-start;
 }
+/*eeeeee*/
+.language-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+}
 
 .container {
     width: 100%;
