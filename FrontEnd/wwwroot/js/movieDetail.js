@@ -70,10 +70,16 @@
             });
 
             if (!response.ok) {
-                throw new Error(`No se encontró la película (Código: ${response.status})`);
+                throw new Error("❌ Película no encontrada. Intenta con otro título.");
             }
 
             const movie = await response.json();
+
+            // Validación adicional en caso que el backend devuelva un objeto vacío
+            if (!movie || !movie.title) {
+                throw new Error("⚠️ No se encontró información para esa película.");
+            }
+
             renderMovieDetails(movie);
 
         } catch (error) {
@@ -81,9 +87,14 @@
             loadingSkeleton.classList.add("hidden");
             movieDetails.classList.add("hidden");
             errorMessage.classList.remove("hidden");
-            errorMessage.textContent = `Error: ${error.message}`;
+            errorMessage.innerHTML = `
+            ${error.message}
+        `;
+
+            lucide.createIcons(); // Recargar íconos si usás lucide
         }
     }
+
 
     function renderMovieDetails(movie) {
         const {
