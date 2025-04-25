@@ -6,7 +6,8 @@
     const pauseButton = document.getElementById("pauseButton");
     const chatArea = document.getElementById("chatArea");
 
-    // Función para agregar mensajes al chat
+    let isSpeaking = false;
+
     function addMessage(content, sender) {
         const message = document.createElement("div");
         message.classList.add("message", sender, "fade-in");
@@ -26,7 +27,6 @@
         }
     }
 
-    // Función para convertir texto a voz
     function speakText(text) {
         if (typeof responsiveVoice === "undefined") {
             console.error("ResponsiveVoice no está cargado.");
@@ -48,14 +48,19 @@
             volume: 1,
             onstart: function () {
                 console.log("Iniciando lectura...");
+                isSpeaking = true;
+                pauseButton.innerHTML = `<i data-lucide="pause" class="btn-icon"></i>`;
+                lucide.createIcons();
             },
             onend: function () {
                 console.log("Lectura completada.");
+                isSpeaking = false;
+                pauseButton.innerHTML = `<i data-lucide="play" class="btn-icon"></i>`;
+                lucide.createIcons();
             }
         });
     }
 
-    // Función para detectar el idioma
     function detectLanguage(text) {
         const languagePatterns = [
             { regex: /\b(pel[ií]cula|director|actor|actriz|cine|filme|taquilla|estreno|género|drama|comedia|tráiler|premio|festival)\b|[ñáéíóúü¿¡]/i, voice: "Spanish Female" },
@@ -78,7 +83,6 @@
         return "US English Female";
     }
 
-    // Función para enviar un mensaje
     async function sendMessage() {
         const question = userInput.value.trim();
         if (question === "") return;
@@ -128,7 +132,6 @@
         }
     });
 
-    // Reconocimiento de voz
     let recognition;
     if ("webkitSpeechRecognition" in window) {
         recognition = new webkitSpeechRecognition();
@@ -153,6 +156,7 @@
             micButton.disabled = false;
             micButton.classList.remove("listening");
             micButton.innerHTML = `<i data-lucide="mic" class="btn-icon"></i>`;
+            lucide.createIcons();
         };
 
         recognition.onerror = function (event) {
@@ -160,18 +164,23 @@
             micButton.disabled = false;
             micButton.classList.remove("listening");
             micButton.innerHTML = `<i data-lucide="mic" class="btn-icon"></i>`;
+            lucide.createIcons();
         };
 
         recognition.onend = function () {
             micButton.disabled = false;
             micButton.classList.remove("listening");
             micButton.innerHTML = `<i data-lucide="mic" class="btn-icon"></i>`;
+            lucide.createIcons();
         };
     });
 
     pauseButton.addEventListener("click", () => {
-        if (typeof responsiveVoice !== "undefined") {
+        if (isSpeaking && typeof responsiveVoice !== "undefined") {
             responsiveVoice.cancel();
+            isSpeaking = false;
+            pauseButton.innerHTML = `<i data-lucide="play" class="btn-icon"></i>`;
+            lucide.createIcons();
             console.log("Voz detenida.");
         }
     });
