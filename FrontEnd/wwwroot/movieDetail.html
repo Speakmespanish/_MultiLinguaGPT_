@@ -1,15 +1,20 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineMax AI - Detalle de Película</title>
     <link rel="stylesheet" href="css/movieDetail.css">
+    <div id="google_translate_element_container">
+        <div id="google_translate_element"></div>
+    </div> 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 <body>
+    
     <div class="container">
         <!-- Navigation buttons -->
         <div class="navigation-buttons">
@@ -22,15 +27,6 @@
                 <i data-lucide="log-out"></i>
                 <span>Cerrar Sesión</span>
             </button>
-        </div>
-        <!-- idiomas -->
-        <div class="language-selector">
-            🌐
-            <select id="language-selector">
-                <option value="es">Español</option>
-                <option value="en">Inglés</option>
-                <option value="fr">Francés</option>
-            </select>
         </div>
 
         <!-- Main card -->
@@ -82,5 +78,14 @@
         lucide.createIcons();
     </script>
     <script src="js/movieDetail.js"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguaje: 'es' },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
