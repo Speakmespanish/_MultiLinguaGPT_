@@ -89,10 +89,7 @@
 
         addMessage(question, "user");
         userInput.value = "";
-        if (/^(hola|buenas|hey|holi)/i.test(question)) {
-            addMessage("Hola, ¿qué película quieres que te recomiende?", "assistant");
-            return;
-        } 
+        
         const loadingMessage = document.createElement("div");
         loadingMessage.classList.add("message", "assistant", "fade-in", "loading");
 
